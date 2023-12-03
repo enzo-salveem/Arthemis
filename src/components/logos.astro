@@ -1,16 +1,468 @@
 ---
 // @ts-ignore
-import { Icon } from "astro-icon";
 ---
 
-<div class="mt-24">
-  <h2 class="text-center text-slate-500">Works with your technologies</h2>
-  <div class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap">
-    <Icon class="h-8 md:h-12" name="simple-icons:react" />
-    <Icon class="h-8 md:h-12" name="simple-icons:svelte" />
-    <Icon class="h-8 md:h-14" name="simple-icons:tailwindcss" />
-    <Icon class="h-8 md:h-16" name="simple-icons:alpinedotjs" />
-    <Icon class="h-8 md:h-12" name="simple-icons:vercel" />
-    <Icon class="h-8 md:h-12" name="simple-icons:astro" />
+<script type="module" src="../../src/utils/carousel.js"></script>
+
+<style>
+  /* Estilo para el <br> que solo se muestra en pantallas de w-2265 o superior */
+  @media (min-width: 2265px) {
+    .br-for-w-2265 {
+      display: block; /* Muestra el <br> */
+    }
+  }
+
+  /* Estilos para pantallas menores de 1400px */
+  @media (max-width: 1387px) {
+    .franja {
+      /* Aplica las clases de Tailwind para pantallas menores de 1400px */
+      @apply skew-y-3 py-12 md:py-16 top-[-35px];
+    }
+  }
+  @media (min-width: 1388px) {
+    .parrafo {
+      margin-right: 1%; /* Ajusta el margen derecho según sea necesario */
+    }
+    .franja {
+      /* Aplica las clases de Tailwind para pantallas mayores o iguales a 1400px */
+      @apply skew-y-2 py-24 top-[-60px];
+    }
+  }
+  @media (min-width: 2850px) {
+    .parrafo {
+      margin-right: -6%; /* Ajusta el margen derecho según sea necesario */
+    }
+  }
+
+  .image {
+    transition: opacity 0.5s;
+  }
+  .button {
+    cursor: pointer;
+    margin: 0 10px;
+    padding: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: white; /*fondo a blanco */
+    border: none;
+    border-radius: 50%; /* botón redondo */
+  }
+
+  .button:focus {
+    outline: none;
+  }
+
+  /* .swiper-container {
+    width: 800px;
+    height: 200px;
+  }
+
+  .swiper-slide {
+    background-color: purple;
+  }
+
+  .blue {
+    background-color: blue;
+  }
+
+  .red {
+    background-color: red;
+  }
+
+ .swiper-container {
+    width: 100%;
+    max-width: 600px;  Ajusta el ancho máximo según tus necesidades 
+    margin: 0 auto;
+  }*/
+  /*
+  .swiper-slide {
+    display: none;
+    overflow: hidden;
+  }
+
+  .swiper-pagination {
+    position: relative;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background-color: rgb(38, 22, 22);
+    opacity: 1.5;
+    margin: 0 5px;
+    border-radius: 50%;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 2;
+  }
+  .swiper-slide-active {
+    display: block; Muestra la diapositiva activa 
+  }*/
+</style>
+<!-- 
+<div class="carousel-container">
+  <div class="carousel">
+    <input type="radio" name="carousel" id="slide1" checked />
+    <div class="carousel-slide">
+      <img src="../../src/assets/pantallas-carousel/captarmedia-tipos1.png" alt="Imagen 1" />
+    </div>
+
+    <input type="radio" name="carousel" id="slide2" />
+    <div class="carousel-slide">
+      <img src="../../src/assets/pantallas-carousel/captarmedia-tipos2.png" alt="Imagen 2" />
+    </div>
+
+    <input type="radio" name="carousel" id="slide3" />
+    <div class="carousel-slide">
+      <img src="../../src/assets/pantallas-carousel/captarmedia-tipos3.png" alt="Imagen 3" />
+    </div>
+-->
+<!-- Agrega más imágenes según sea necesario -->
+
+<!-- Botones de navegación 
+  <label for="slide1" class="prev-slide-btn">&lt;</label>
+  <label for="slide2" class="next-slide-btn">&gt;</label>
+  <label for="slide3" class="next-slide-btn">&gt;</label>
+</div>-->
+
+<!-- 
+<div class="swiper-container">
+ Additional required wrapper 
+  <div class="swiper-wrapper">
+  Slides 
+    <div class="swiper-slide">
+      <img
+        src="../../src/assets/pantallas-carousel/captarmedia-tipos1.png"
+        alt="Imagen 2"
+      />
+    </div>
+    <div class="swiper-slide">
+      <img
+        src="../../src/assets/pantallas-carousel/captarmedia-tipos1.png"
+        alt="Imagen 1"
+      />
+    </div>
+    <div class="swiper-slide">
+      <img
+        src="../../src/assets/pantallas-carousel/captarmedia-tipos1.png"
+        alt="Imagen 4"
+      />
+    </div>
+    ...
+  </div>
+   If we need pagination 
+  <div class="swiper-pagination"></div>-->
+
+<!-- If we need navigation buttons 
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+   If we need scrollbar
+  <div class="swiper-scrollbar"></div>
+</div>
+-->
+<!-- Slider main container 
+<div class="swiper-container">
+  Additional required wrapper 
+  <div class="swiper-wrapper">-->
+<!-- Slides
+    <div class="swiper-slide"> <img
+      src="../../src/assets/pantallas-carousel/captarmedia-tipos1.png"
+      alt="Imagen 1"
+    /></div>
+    <div class="swiper-slide blue"> <img
+      src="../../src/assets/pantallas-carousel/captarmedia-tipos1.png"
+      alt="Imagen 1"
+    /></div>
+    <div class="swiper-slide red"> <img
+      src="../../src/assets/pantallas-carousel/captarmedia-tipos1.png"
+      alt="Imagen 1"
+    /></div>
+    ...
+  </div> -->
+<!-- If we need pagination 
+  <div class="swiper-pagination"></div>-->
+
+<!-- If we need navigation buttons 
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>-->
+
+<!-- If we need scrollbar -->
+<!--     <div class="swiper-scrollbar"></div> 
+</div>-->
+
+<!--
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img
+        src="../../src/assets/pantallas-carousel/captarmedia-tipos1.png"
+        alt="Imagen 1"
+      />
+    </div>
+    <div class="swiper-slide">
+      <img
+        src="../../src/assets/pantallas-carousel/captarmedia-tipos1.png"
+        alt="Imagen 2"
+      />
+    </div>
+    <div class="swiper-slide">
+      <img
+        src="../../src/assets/pantallas-carousel/captarmedia-tipos1.png"
+        alt="Imagen 3"
+      />
+    </div>
+  </div>-->
+<!-- Puntos de navegación 
+  <div class="swiper-pagination">
+    <div class="swiper-pagination-bullet">dsdsdsd</div>
+  </div>
+</div>-->
+
+<!-- 
+<div class="swiper">-->
+<!-- Additional required wrapper 
+  <div class="swiper-wrapper">-->
+<!-- Slides 
+    <div class="swiper-slide justify-center items-center">
+      <img
+        src="../../src/assets/pantallas-carousel/captarmedia-tipos1.png"
+        alt="Imagen 1"
+        class="h-52"
+      />
+    </div>
+    <div class="swiper-slide">
+      <img
+        src="../../src/assets/pantallas-carousel/captarmedia-tipos2.png"
+        alt="Imagen 2"
+        class="h-52"
+      />
+    </div>
+    <div class="swiper-slide">
+      <img
+        src="../../src/assets/pantallas-carousel/captarmedia-tipos3.png"
+        alt="Imagen 3"
+        class="h-52"
+      />
+    </div>
+    ...
+  </div>-->
+<!-- If we need pagination 
+  <div class="swiper-pagination"></div>-->
+
+<!-- If we need navigation buttons 
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+-->
+<!-- If we need scrollbar
+  <div class="swiper-scrollbar"></div>
+</div> -->
+
+<div class="bg-gradient-to-r from-red-500 to-gray-800">
+  <div class="relative">
+    <div class="text-center absolute w-full z-10">
+      <h2 class="text-white font-bold text-3xl md:text-5xl">
+        ¿Qué puedo comunicar?
+      </h2>
+    </div>
+    <div
+      class="franja md:mt-0 relative bg-gradient-to-r from-red-500 to-gray-800 transform">
+    </div>
+  </div>
+
+  <div class="column mt-[-48px] relative">
+    <br />
+    <div class="flex flex-col justify-center items-center">
+      <div style="max-width: 1600px;">
+        <div class="grid lg:grid-cols-4">
+          <div class="lg:col-span-2">
+            <!--aki esta el carousel
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img
+                src="../../src/assets/pantallas-carousel/captarmedia-tipos1.png"
+                alt="Imagen 1"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img src="../../src/assets/pantallas-carousel/captarmedia-tipos2.png" alt="Imagen 2" />
+            </div>
+            <div class="swiper-slide">
+              <img src="../../src/assets/pantallas-carousel/captarmedia-tipos3.png" alt="Imagen 3" />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+ -->
+            <div class="text-center">
+              <img
+                id="current-image"
+                class="image h-80 md:h-72 mx-auto"
+                src="../../src/assets/pantallas-carousel/captarmedia-tipos1.png"
+                alt="Imagen"
+              />
+              <div class="mt-4">
+                <button id="miBoton" class="button"></button>
+                <button id="miBoton2" class="button"></button>
+                <button id="miBoton3" class="button"></button>
+                <button id="miBoton4" class="button"></button>
+                <button id="miBoton5" class="button"></button>
+                <button id="miBoton6" class="button"></button>
+                <br class="block md:hidden" />
+                <br class="block md:hidden" />
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-1 mx-auto">
+            <div class="flex flex-col justify-between m-4 mr-6">
+              <h2
+                class="text-white font-bold text-medium md:text-xl ml-6 md:ml-0">
+                ENTRETENIMIENTO
+              </h2>
+              <p
+                class="text-white text-medium font-medium md:text-xl ml-6 md:ml-0">
+                Podés elegir todo tipo de entretenimiento en alta definición y
+                transmitirlo en tu comercio o casa.
+              </p>
+            </div>
+            <br />
+            <div class="flex flex-col justify-between m-4 mr-6">
+              <h2
+                class="text-white font-bold text-medium md:text-xl ml-6 md:ml-0">
+                NOTICIAS
+              </h2>
+              <p
+                class="parrafo text-white font-medium text-medium md:text-xl ml-6 md:ml-0">
+                Con nuestro software, podés transmitir noticias mediante un
+                zócalo en simultáneo con entretenimiento en pantalla completa.
+              </p>
+            </div>
+            <br />
+            <div class="flex flex-col justify-between m-4 mr-6">
+              <h2
+                class="text-white font-bold text-medium md:text-xl ml-6 md:ml-0">
+                URL / SITIOS WEB
+              </h2>
+              <p
+                class="text-white font-medium text-medium md:text-xl ml-6 md:ml-0">
+                Visualizá la url que quieras a través de nuestro sistema.
+              </p>
+            </div>
+            <br />
+          </div>
+          <div class="lg:col-span-1 mx-auto md:mr-12">
+            <div class="flex flex-col justify-between m-4 mr-6">
+              <h2
+                class="text-white font-bold text-medium md:text-xl ml-6 md:ml-2 lg:ml-0">
+                PUBLICIDAD
+              </h2>
+              <p
+                class="text-white font-medium text-medium md:text-xl ml-6 md:ml-2 lg:ml-0">
+                Convertí tu sistema en un canal de venta y ofrecé
+                espaciospublicitarios.
+              </p>
+            </div>
+            <br />
+            <div class="flex flex-col justify-between m-4 mr-6">
+              <h2
+                class="text-white font-bold text-medium md:text-xl ml-6 md:ml-2 lg:ml-0">
+                INFORMACIÓN
+              </h2>
+              <p
+                class="text-white font-mediumn text-medium md:text-xl ml-6 md:ml-2 lg:ml-0">
+                Placas informativas, nuevos horarios y mucho más.
+              </p>
+            </div>
+            <br />
+            <div class="flex flex-col justify-between m-4 mr-6">
+              <h2
+                class="text-white font-bold text-medium md:text-xl ml-6 md:ml-2 lg:ml-0">
+                STREAMING
+              </h2>
+              <p
+                class="text-white font-medium text-medium md:text-xl ml-6 md:ml-2 lg:ml-0">
+                Transmití sorteos, noticias o lo que quieras, solo tenés que
+                ingresar el canal de streaming.
+              </p>
+            </div>
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+</div>
+<div
+  class="bg-white"
+  style="background-image: url('../../src//assets/captarmedia-caracteristicas1.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+  <div class="flex flex-col justify-center items-center">
+    <div style="max-width: 1600px;">
+      <div class="grid md:grid-cols-2">
+        <div
+          class="flex flex-col justify-center items-center mx-auto md:col-span-1 mx-auto">
+          <div class="mx-auto">
+            <p
+              class="text-2xl md:text-3xl mt-14 md:mt-0 ml-6 md:ml-12 font-bold"
+              style="color:#7c3fa9">
+              Manejá tus contenidos
+            </p>
+            <br />
+            <p
+              class="text-gray-500 font-medium text-normal md:text-xl ml-4 md:ml-10 m-2">
+              Con nuestro administrador, podés chequear, modificar y <br
+                class="hidden md:block"
+              />actualizar el contenido a comunicar estés donde estés, de manera
+              online.
+            </p>
+          </div>
+          <img
+            src="../../src/assets/captarmedia-orientacion-pantalla-16.png"
+            alt="captar_media_logo6"
+            class="h-80 md:h-2/5 lg:h-3/5"
+          />
+        </div>
+
+        <div class="flex flex-col justify-center mx-automd:col-span-1 mx-auto">
+          <br class="hidden md:block" /><br class="hidden md:block" />
+          <br class="hidden md:block" /><br class="hidden md:block" />
+          <br class="hidden md:block" /><br class="hidden md:block" />
+          <br class="hidden md:block" /><br class="hidden md:block" />
+          <br class="hidden md:block" /><br class="hidden md:block" />
+          <br class="hidden md:block" /><br class="hidden md:block" />
+          <br class="hidden md:block" /><br class="hidden md:block" />
+          <br class="hidden md:block" /><br class="hidden md:block" />
+          <br class="hidden md:block" /><br class="hidden md:block" />
+          <br class="hidden md:block" /><br class="hidden md:block" />
+          <div class="flex flex-col justify-between m-12 ">
+            <h2
+              class="text-red-500 font-bold text-2xl md:text-3xl  mt-24 md:mt-0">
+              Contenido segmentado
+            </h2>
+            <br />
+            <p class="font-medium text-normal md:text-xl text-gray-500 ">
+              Elegí qué y a quién comunicar. Con nuestro producto, podés tener
+              múltiples pantallas, armar grupos de pantallas (circuitos) y
+              definir un contenido diferente para cada circuito.
+            </p><br />
+            <p class="font-medium text-normal md:text-xl text-gray-500 ">
+              Nunca fue tán facil decir lo que querés
+            </p>
+          </div>
+          <br />
+          <br /><br />
+        </div>
+        <br />
+        <br />
+        <br />
+      </div>
+    </div>
   </div>
 </div>

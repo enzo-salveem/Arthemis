@@ -17,9 +17,7 @@ const resolvedImageWithDomain = new URL(
 
 const { title } = Astro.props;
 
-const makeTitle = title
-  ? title + " | " + "Astroship"
-  : "Astroship - Starter Template for Astro with Tailwind CSS";
+const makeTitle = title ? title : "Captar Media - Carteleria digital";
 ---
 
 <!DOCTYPE html>
@@ -27,7 +25,17 @@ const makeTitle = title
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../../src/assets/captarmedia-logo-18-150x150.png"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
     <meta name="generator" content={Astro.generator} />
 
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
@@ -53,16 +61,20 @@ const makeTitle = title
       }}
     />
   </head>
-  <body>
-    <Navbar />
-    <slot />
-    <Footer />
+  <body
+    ><Navbar />
+    <div
+      style="background-image: url('../../src//assets/captarmedia-electrourquiza1.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+      <slot />
+
+      <!--
     <style is:global>
       /* Improve Page speed */
       /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
-      img {
+      /*img {
         content-visibility: auto;
       }
-    </style>
+    </style> -->
+    </div><Footer />
   </body>
 </html>
