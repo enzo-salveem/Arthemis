@@ -1,0 +1,145 @@
+---
+// @ts-ignore
+
+const features = [
+  {
+    title: "Bring Your Own Framework",
+    description:
+      "Build your site using React, Svelte, Vue, Preact, web components, or just plain ol' HTML + JavaScript.",
+    icon: "bx:bxs-briefcase",
+  },
+  {
+    title: "100% Static HTML, No JS",
+    description:
+      "Astro renders your entire page to static HTML, removing all JavaScript from your final build by default.",
+    icon: "bx:bxs-window-alt",
+  },
+  {
+    title: "On-Demand Components",
+    description:
+      "Need some JS? Astro can automatically hydrate interactive components when they become visible on the page.  ",
+    icon: "bx:bxs-data",
+  },
+  {
+    title: "Broad Integration",
+    description:
+      "Astro supports TypeScript, Scoped CSS, CSS Modules, Sass, Tailwind, Markdown, MDX, and any other npm packages.",
+    icon: "bx:bxs-bot",
+  },
+  {
+    title: "SEO Enabled",
+    description:
+      "Automatic sitemaps, RSS feeds, pagination and collections take the pain out of SEO and syndication. It just works!",
+    icon: "bx:bxs-file-find",
+  },
+  {
+    title: "Community",
+    description:
+      "Astro is an open source project powered by hundreds of contributors making thousands of individual contributions.",
+    icon: "bx:bxs-user",
+  },
+];
+---
+
+<style>
+  /* Estilos para pantallas menores de 1400px */
+  @media (max-width: 1399px) {
+    .franja {
+      /* Aplica las clases de Tailwind para pantallas menores de 1400px */
+      @apply skew-y-[-3deg] py-16 top-[-35px];
+    }
+  }
+
+  /* Estilos para pantallas mayores o iguales a 1400px */
+  @media (min-width: 1400px) {
+    .franja {
+      /* Aplica las clases de Tailwind para pantallas mayores o iguales a 1400px */
+      @apply skew-y-[-2deg] py-24 top-[-65px];
+    }
+  }
+
+  .diagonal-div {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 40%; /* ajusta la altura para más espacio al texto */
+    overflow: hidden;
+  }
+
+  .diagonal-div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: transparent; /* Color superior*/
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 0%);
+  }
+
+  .diagonal-div::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%; /*franja inferior */
+    background-color: rgb(138, 40, 40); /* Color inferior*/
+    clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 100%);
+  }
+
+  /*para el texto */
+  .diagonal-div h2 {
+    position: relative;
+    z-index: 1; /* Coloca el texto por encima del fondo diagonal supuestamente*/
+    background-color: transparent; /* Fondo transparente para el texto aver si funca */
+  }
+</style>
+
+<!--<div class="diagonal-div relative"> 
+  
+</div>
+-->
+<div class="relative">
+  
+  <div class="text-center absolute w-full z-10" >
+    <h2 class="text-red-500 font-bold text-3xl">
+      ¿Qué te ofrece Captar Media?
+    </h2>
+    <div class="md:ml-24 md:mr-24 flex justify-center items-center">
+      <p
+        class="text-1xl mg:text-lg text-black font-extralight m-5 text-center"
+        style="line-height: 2; max-width: 1600px;">
+        Transmitir contenidos atractivos y de manera segmentada nunca fue tan
+        simple. <strong class="font-bold">Captar Media</strong> te brinda una solución de <strong class="font-bold"
+          >cartelería digital indoor</strong
+        > y de exteriores, brindandote la posibilidad de administrar entretenimiento,
+        noticias o información corporativa, segmentar por grupo de pantallas y todo,
+        de manera totalmente online.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="regulador"></div>
+
+<div
+  class="franja md:mt-0 relative bg-gradient-to-b from-white to-white transform">
+</div>
+<br class="block md:hidden" />
+<br class="block md:hidden" />
+<br class="block md:hidden" />
+<br class="block md:hidden" />
+<br class="block md:hidden" />
+<br class="block md:hidden" />
+
+<!-- -->
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

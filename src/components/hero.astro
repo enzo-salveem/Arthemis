@@ -1,0 +1,104 @@
+---
+import { Picture } from "@astrojs/image/components";
+import heroImage from "assets/hero.png";
+import Link from "@components/ui/link.astro";
+import { Icon } from "astro-icon";
+---
+
+<main class="pt-12 pb-12 md:pt-32 md:pb-52">
+  <style>
+   
+    @media screen and (min-width: 2200px){
+      .regulador {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .titulo {
+        margin-left: -7rem;
+      }
+      .boton {
+        margin-left: -24rem;
+      }
+    }
+    .move-in-btn {
+      animation: moveIn 1s forwards;
+      transform: translateX(-200%);
+      /* Ajusta el valor de translateX según tus necesidades */
+    }
+
+    @keyframes moveIn {
+      to {
+        transform: translateX(0);
+      }
+    }
+  </style>
+  <!--<style>
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .btn {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .btn:hover .btn-img {
+      transform: scale(1.2);
+      animation: pulse 3s alternate;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.2);
+      }
+    }
+  </style>-->
+  
+  <div style="width: 90%;">
+    <div class="regulador">
+      <h1
+        class="titulo text-3xl lg:text-6xl mt-16 ml-16 font-bold lg:tracking-tight xl:tracking-tighter text-white"
+        style="transform: skewX(-13deg);">
+        CARTELERÍA DIGITAL
+      </h1>
+      <p class="text-xl lg:text-3xl m-8 text-white ml-16">
+        <strong>Software de administración de contenidos digitales</strong>
+      </p>
+      <div class="boton ml-16 button-container">
+        <!-- 
+      <button class="btn transform transition-transform hover:scale-110">
+        <img
+          src="../../src/assets/captarmedia-download-07-300x78.png"
+          alt="Botón con imagen"
+          class="btn-img"
+        />
+      </button>
+-->
+
+        <div class="button-container">
+          <button class="btn move-in-btn">
+            <img
+              src="../../src/assets/captarmedia-download-07-300x78.png"
+              alt="Botón con imagen"
+              class="btn-img"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
