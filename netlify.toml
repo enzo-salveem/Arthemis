@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  functions = "dist/functions"
+
+[dev]
+  command = "npm run dev"
+[[redirects]]
+  from= "/*"
+  to= "src/layouts/Layout.astro"
+  status=200
