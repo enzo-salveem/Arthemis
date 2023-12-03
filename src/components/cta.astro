@@ -1,47 +1,17 @@
 ---
+import Link from "./ui/link.astro";
 ---
 
-<style>
-  /* Estilos para pantallas menores de 1400px */
-  @media (max-width: 1399px) {
-    .franja {
-      /* Aplica las clases de Tailwind para pantallas menores de 1400px */
-      @apply skew-y-[-3deg] py-16 top-[-35px];
-    }
-  }
-
-  /* Estilos para pantallas mayores o iguales a 1400px */
-  @media (min-width: 1400px) {
-    .franja {
-      /* Aplica las clases de Tailwind para pantallas mayores o iguales a 1400px */
-      @apply skew-y-[-2deg] py-28 top-[-70px];
-    }
-  }
-</style>
-<div class="relative">
-  <div class="text-center text-4xl absolute w-full z-10">
-    <h2 class="m-5 text-red-600 font-bold">
-      Te invitamos a probar nuestro software ya
-    </h2>
-    <div class="button-container text-center">
-      <button class="m-2 btn transform transition-transform hover:scale-110">
-        <img
-          src="../../src/assets/captarmedia-download-07-300x78.png"
-          alt="Botón con imagen"
-          class="btn-img"
-        />
-      </button>
-    </div>
+<div
+  class="bg-black p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-lg flex flex-col items-center text-center">
+  <h2 class="text-white text-4xl md:text-6xl tracking-tight">
+    Build faster websites.
+  </h2>
+  <p class="text-slate-400 mt-4 text-lg md:text-xl">
+    Pull content from anywhere and serve it fast with Astro's next-gen island
+    architecture.
+  </p>
+  <div class="flex mt-5">
+    <Link href="#" style="inverted">Get Started</Link>
   </div>
-  <div
-    class="franja md:mt-0 relative bg-gradient-to-b from-gray-200 to-gray-200 transform">
-  </div>
-
-  <br class="block md:hidden" />
-  <br class="block md:hidden" />
 </div>
-<br />
-<br />
-<br />
-<br />
-<br />
