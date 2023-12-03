@@ -1,6 +1,8 @@
 [build]
   command = "npm run build"
-  functions = "dist/functions"
+  publish = "dist"  # Ajusta esto según tu configuración
+  functions = "dist/functions"  # Ajusta esto según tu configuración
+
 
 [dev]
   command = "npm run dev"
