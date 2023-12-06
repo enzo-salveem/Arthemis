@@ -1,12 +1,12 @@
 [build]
   command = "npm run build"
-  publish = "dist"  # Ajusta esto según tu configuración
+  publish = "dist/arthemis"  # Ajusta esto según tu configuración
   functions = "dist/functions"  # Ajusta esto según tu configuración
-
 
 [dev]
   command = "npm run dev"
+
 [[redirects]]
   from= "/*"
-  to= "src/layouts/Layout.astro"
+  to = "/index.html"
   status=200
