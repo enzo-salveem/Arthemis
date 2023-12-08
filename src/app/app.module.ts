@@ -10,6 +10,7 @@ import { StrikesComponent } from './pages/strikes/strikes.component';
 import { BeneficiosComponent } from './pages/beneficios/beneficios.component';
 import { GuerraComponent } from './pages/guerra/guerra.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
     StrikesComponent,
     BeneficiosComponent,
     GuerraComponent,
-    ContactoComponent
+    ContactoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
